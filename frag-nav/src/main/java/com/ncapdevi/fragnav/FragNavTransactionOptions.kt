@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentTransaction
 import android.support.v4.util.Pair
 import android.view.View
 
-
+@Suppress("MemberVisibilityCanBePrivate", "unused")
 class FragNavTransactionOptions private constructor(builder: Builder) {
     val sharedElements: List<Pair<View, String>> = builder.sharedElements
     @FragNavController.Transit
@@ -24,6 +24,7 @@ class FragNavTransactionOptions private constructor(builder: Builder) {
     val breadCrumbTitle: String? = builder.breadCrumbTitle
     val breadCrumbShortTitle: String? = builder.breadCrumbShortTitle
     val allowStateLoss: Boolean = builder.allowStateLoss
+    val reorderingAllowed: Boolean = builder.reorderingAllowed
 
 
     class Builder {
@@ -37,6 +38,7 @@ class FragNavTransactionOptions private constructor(builder: Builder) {
         var breadCrumbTitle: String? = null
         var breadCrumbShortTitle: String? = null
         var allowStateLoss = false
+        var reorderingAllowed = false
 
         fun addSharedElement(element: Pair<View, String>): Builder {
             sharedElements.add(element)
@@ -83,6 +85,11 @@ class FragNavTransactionOptions private constructor(builder: Builder) {
 
         fun allowStateLoss(allow: Boolean): Builder {
             allowStateLoss = allow
+            return this
+        }
+
+        fun reorderingAllowed(allow: Boolean): Builder {
+            reorderingAllowed = allow
             return this
         }
 
