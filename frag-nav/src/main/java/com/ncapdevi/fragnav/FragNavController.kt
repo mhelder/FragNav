@@ -658,6 +658,8 @@ class FragNavController constructor(private val fragmentManger: FragmentManager,
                     setCustomAnimations(options.enterAnimation, options.exitAnimation)
                 }
 
+                setReorderingAllowed(options.reorderingAllowed)
+
                 setTransitionStyle(options.transitionStyle)
 
                 setTransition(options.transition)
